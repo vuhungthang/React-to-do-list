@@ -18,6 +18,13 @@ function App() {
         setTaskList([]);
     }
 
+    function done(excludeIndex){
+        let hello = taskList.filter((_,index) => {
+            return index!== excludeIndex;
+        })
+        setTaskList(hello);
+    }
+
     return (
       <>
           <h1>To-do-List</h1>
@@ -35,7 +42,10 @@ function App() {
           <ol>
               {taskList.map((task, index) => {
                   return (
-                      <li key={index}>{task}</li>
+                      <>
+                          <li key={index}>{task}</li>
+                          <button onClick={() => done(index)}>Done</button>
+                      </>
                   )
               })}
           </ol>
