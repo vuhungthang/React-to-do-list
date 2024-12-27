@@ -14,6 +14,9 @@ function App() {
             setTask('');
         }
     }
+    function clear() {
+        setTaskList([]);
+    }
 
     return (
       <>
@@ -36,6 +39,8 @@ function App() {
                   )
               })}
           </ol>
+
+          <button onClick={clear}>Clear</button>
       </>
   )
 }
